@@ -1,0 +1,16 @@
+
+
+.nav1{
+  text-decoration: none;
+  color: black;
+}
+
+.nav1::hover {
+  text-decoration: none;
+  color: black;
+}
+
+.active-link {
+  text-decoration: underline;
+  color: blue;
+}
