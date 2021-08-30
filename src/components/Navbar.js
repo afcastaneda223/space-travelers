@@ -8,7 +8,7 @@ function Navbar() {
       <div className="container-fluid">
         <NavLink to="/">
           <img alt="Logo" src={logo} />
-          <button type="button" className="btn btn-light blue"><h3>Space Travelers&apos; Hub</h3></button>
+          <button type="button" className="btn btn-light"><h3>Space Travelers&apos; Hub</h3></button>
         </NavLink>
         <button
           className="navbar-toggler"
