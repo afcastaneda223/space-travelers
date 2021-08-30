@@ -1,0 +1,4 @@
+.btn-light:focus {
+  background-color: red;
+  text-decoration: underline;
+}

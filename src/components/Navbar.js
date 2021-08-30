@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/img/planet.png'
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/img/planet.png';
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5 sticky-top">
       <div className="container-fluid">
-        <Link to="/">
+        <NavLink to="/">
           <img alt="Logo" src={logo} />
           <button type="button" className="btn btn-light blue"><h3>Space Travelers&apos; Hub</h3></button>
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,13 +24,13 @@ function Navbar() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav text-end mb-2 mb-lg-0 pe-5">
             <li className="nav-item m-2">
-              <Link to="/"><button type="button" className="btn btn-light mt-1 text-muted fw-bold"><p>Rockets</p></button></Link>
+              <NavLink to="/"><button type="button" className="btn btn-light mt-1"><p>Rockets</p></button></NavLink>
             </li>
             <li className="nav-item m-2">
-              <Link to="/missions"><button type="button" className="btn btn-light mt-1 text-muted"><p>Missions</p></button></Link>
+              <NavLink to="/missions"><button type="button" className="btn btn-light mt-1"><p>Missions</p></button></NavLink>
             </li>
             <li className="nav-item m-2">
-              <Link to="/profile"><button type="button" className="btn btn-light mt-1 text-muted"><p>Profile</p></button></Link>
+              <NavLink to="/profile"><button type="button" className="btn btn-light mt-1"><p>Profile</p></button></NavLink>
             </li>
           </ul>
         </div>
