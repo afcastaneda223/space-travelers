@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getRocket } from '../redux/rockets/rockets';
 
 function RocketList() {
@@ -14,8 +14,8 @@ function RocketList() {
     apiRockets();
   }, []);
 
-//   const myRocketArray = useSelector((state) => state.RocketArray);
-//   console.log(myRocketArray);
+  //   const myRocketArray = useSelector((state) => state.RocketArray);
+  //   console.log(myRocketArray);
 
   return (
     <div>
