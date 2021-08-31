@@ -19,7 +19,6 @@ function RocketList() {
     }
   }, []);
 
-
   const reserveRocket = (e) => {
     dispatch(bookRocket(e.target.id));
   };
