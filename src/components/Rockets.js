@@ -3,8 +3,7 @@ import RocketList from './RocketList';
 
 function Rockets() {
   return (
-    <div className="container border border-1">
-      <h5> Rockets here! </h5>
+    <div className="container">
       <RocketList />
     </div>
   );
