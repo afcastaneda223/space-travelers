@@ -1,13 +1,13 @@
-// const BOOK_ROCKET = 'BOOK_ROCKET';
+const BOOK_ROCKET = 'BOOK_ROCKET';
 // const UNBOOK_ROCKET = 'UNBOOK_ROCKET';
 const GET_ROCKET = 'GET_ROCKET';
 const initialState = [];
 // const API = '';
 
-// export const addBook = (payload) => ({
-//   type: BOOK_ROCKET,
-//   payload,
-// });
+export const bookRocket = (payload) => ({
+  type: BOOK_ROCKET,
+  payload,
+});
 
 // export const removeBook = (payload) => ({
 //   type: UNBOOK_ROCKET,
@@ -21,33 +21,11 @@ export const getRocket = (payload) => ({
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case BOOK_ROCKET:
-    //   fetch(API, {
-    //     cash: 'reload',
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       item_id: action.payload.id,
-    //       title: action.payload.title,
-    //       category: action.payload.category,
-    //     }),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   }).then(() => {
-    //     window.location.reload();
-    //   });
-    //   return state;
-    // case UNBOOK_ROCKET:
-    //   fetch(`${API}${action.payload.id}`, {
-    //     cash: 'reload',
-    //     method: 'DELETE',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   }).then(() => {
-    //     window.location.reload();
-    //   });
-    //   return state;
+    case BOOK_ROCKET:
+      return state.map((rocket) => {
+        if (rocket.id !== parseInt(action.payload, 10)) return rocket;
+        return { ...rocket, reserved: true };
+      });
     case GET_ROCKET:
       return action.payload.map((key) => ({
         id: key.id,
