@@ -5,16 +5,19 @@ import { getRocket } from '../redux/rockets/rockets';
 function RocketList() {
   const dispatch = useDispatch();
   const fetchApi = 'https://api.spacexdata.com/v3/rockets';
+
+  const myRocketArray = useSelector((state) => state.rockets);
+
   useEffect(() => {
     const apiRockets = async () => {
       const fetchRocket = await fetch(fetchApi);
       const rockets = await fetchRocket.json();
       return dispatch(getRocket(rockets));
     };
-    apiRockets();
+    if (myRocketArray.length === 0) {
+      apiRockets();
+    }
   }, []);
-
-  const myRocketArray = useSelector((state) => state.rockets);
 
   return (
     <div>

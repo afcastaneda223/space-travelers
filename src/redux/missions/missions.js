@@ -9,7 +9,7 @@ const baseURL = 'https://api.spacexdata.com/v3/missions/';
 
 // Initial State
 
-const initialState = {};
+const initialState = [];
 
 // Action Creators
 export const missionsSuccess = (payload) => ({
