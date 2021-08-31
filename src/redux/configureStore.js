@@ -1,16 +1,15 @@
-// import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import logger from 'redux-logger';
-// import thunk from 'redux-thunk';
-// // import booksReducer from './books/books'; remember to import both reducers
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import rocketsReducer from './rockets/rockets';
 
-// const reducer = combineReducers({
-//   rockets: rocketsReducer,
-//   misions: misionsReducer,
-// });
+const reducer = combineReducers({
+  rockets: rocketsReducer,
+});
 
-// const store = createStore(
-//   reducer,
-//   applyMiddleware(thunk, logger),
-// );
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk, logger),
+);
 
-// export default store;
+export default store;
