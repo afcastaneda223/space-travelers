@@ -12,6 +12,11 @@
 
 [Live Version](https://github.com/afcastaneda223/space-travelers)
 
+## Video Presentation
+
+We did a short presentation of our project. You can view it here:
+
+[Presentation](https://drive.google.com/file/d/1QSFY-dm2iCV575yfLcLLb0B5E3WbhQ_I/view?usp=sharing)
 
 ## Built With
 
