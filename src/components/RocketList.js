@@ -42,7 +42,7 @@ function RocketList() {
                   { rocket.reserved ? <span className="badge me-2">Reserved</span> : null}
                   {rocket.description}
                 </p>
-                { rocket.reserved ? <button type="button" onClick={cancelReserve} id={rocket.id} className="btn btn-outline-primary mt-lg-5">Cancel Reservation</button> : <button type="button" onClick={reserveRocket} id={rocket.id} className="btn btn-primary mt-lg-5">Reserve Rocket</button>}
+                { rocket.reserved ? <button type="button" onClick={cancelReserve} id={rocket.id} className="btn btn-outline-dark mt-lg-5">Cancel Reservation</button> : <button type="button" onClick={reserveRocket} id={rocket.id} className="btn btn-primary mt-lg-5">Reserve Rocket</button>}
               </div>
             </div>
           </div>
