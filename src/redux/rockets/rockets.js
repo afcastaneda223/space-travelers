@@ -1,5 +1,5 @@
 const BOOK_ROCKET = 'BOOK_ROCKET';
-// const UNBOOK_ROCKET = 'UNBOOK_ROCKET';
+const UNBOOK_ROCKET = 'UNBOOK_ROCKET';
 const GET_ROCKET = 'GET_ROCKET';
 const initialState = [];
 // const API = '';
@@ -9,10 +9,10 @@ export const bookRocket = (payload) => ({
   payload,
 });
 
-// export const removeBook = (payload) => ({
-//   type: UNBOOK_ROCKET,
-//   payload,
-// });
+export const unbookRocket = (payload) => ({
+  type: UNBOOK_ROCKET,
+  payload,
+});
 
 export const getRocket = (payload) => ({
   type: GET_ROCKET,
@@ -25,6 +25,11 @@ const reducer = (state = initialState, action) => {
       return state.map((rocket) => {
         if (rocket.id !== parseInt(action.payload, 10)) return rocket;
         return { ...rocket, reserved: true };
+      });
+    case UNBOOK_ROCKET:
+      return state.map((rocket) => {
+        if (rocket.id !== parseInt(action.payload, 10)) return rocket;
+        return { ...rocket, reserved: false };
       });
     case GET_ROCKET:
       return action.payload.map((key) => ({

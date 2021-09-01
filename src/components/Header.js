@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 
 function Header() {
   return (
-    <header>
+    <header className="sticky-top">
       <Navbar />
     </header>
   );
