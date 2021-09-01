@@ -7,9 +7,9 @@ function ProfileRockets() {
   return (
     <div>
       <ul className="list-group">
-        {myRocketArray.map((rocket) => (
+        {myRocketArray.filter((rocket) => rocket.reserved).map((rocket) => (
           <div key={rocket.id}>
-            { rocket.reserved ? <li className="list-group-item list-group-item-action py-4 rounded">{rocket.rocket_name}</li> : null}
+            <li className="list-group-item list-group-item-action py-4 rounded">{rocket.rocket_name}</li>
           </div>
         ))}
       </ul>
