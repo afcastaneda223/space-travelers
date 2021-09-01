@@ -3,7 +3,8 @@
 // Actions
 const MISSIONS_SUCCESS = 'space-travelers/missions/MISSIONS_SUCCESS';
 const MISSIONS_FAILURE = 'space-travelers/missions/MISSIONS_FAILURE';
-const BOOK_MISSION = 'space-travelers/missions/JOIN_MISSION';
+const BOOK_MISSION = 'space-travelers/missions/BOOK_MISSION';
+const UNBOOK_MISSION = 'space-travelers/missions/UNBOOK_MISSION';
 
 // API
 const baseURL = 'https://api.spacexdata.com/v3/missions/';
@@ -38,23 +39,34 @@ export const bookMission = (payload) => ({
   payload,
 });
 
+export const unbookMission = (payload) => ({
+  type: UNBOOK_MISSION,
+  payload,
+});
+
 // Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case MISSIONS_SUCCESS:
       return action.payload.map((mission) => (
         {
-          missionId: mission.mission_id,
-          missionName: mission.mission_name,
-          missionDescription: mission.description,
+          id: mission.mission_id,
+          name: mission.mission_name,
+          description: mission.description,
+          reserved: false,
         }
       ));
     case MISSIONS_FAILURE:
       return state;
     case BOOK_MISSION:
       return state.map((mission) => {
-        if (mission.missionId !== action.payload) return mission;
+        if (mission.id !== action.payload) return mission;
         return { ...mission, reserved: true };
+      });
+    case UNBOOK_MISSION:
+      return state.map((mission) => {
+        if (mission.id !== action.payload) return mission;
+        return { ...mission, reserved: false };
       });
     default:
       return state;
