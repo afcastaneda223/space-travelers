@@ -5,7 +5,7 @@
 - Book rockets
 - Join selected space missions
 
-![screenshot]()
+![screenshot](.github/images/space.png)
 
 
 ## Live-version
@@ -15,7 +15,7 @@
 
 ## Built With
 
-- React + Javascript + Redux
+- React + Javascript + Redux + Bootstrap
 
 ## Getting Started
 
