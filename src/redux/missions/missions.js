@@ -3,6 +3,7 @@
 // Actions
 const MISSIONS_SUCCESS = 'space-travelers/missions/MISSIONS_SUCCESS';
 const MISSIONS_FAILURE = 'space-travelers/missions/MISSIONS_FAILURE';
+const BOOK_MISSION = 'space-travelers/missions/JOIN_MISSION';
 
 // API
 const baseURL = 'https://api.spacexdata.com/v3/missions/';
@@ -32,45 +33,10 @@ export const fetchMissions = () => async (dispatch) => {
   return dispatch(missionsFailure());
 };
 
-/* export const addBook = (payload) => ({
-  type: ADD_BOOK,
+export const bookMission = (payload) => ({
+  type: BOOK_MISSION,
   payload,
 });
-
-export const addBooktoAPI = (payload) => async (dispatch) => {
-  const response = await fetch(`${baseURL}books/`, {
-    method: 'POST',
-    body: JSON.stringify({
-      item_id: payload.titleInfo.id,
-      title: payload.titleInfo.title,
-      category: payload.titleInfo.category,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const responseStatus = await response.ok;
-  if (responseStatus) {
-    return dispatch(addBook(payload));
-  }
-  return dispatch(BOOKS_FAILURE());
-};
-
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
-
-export const removeBookFromAPI = (payload) => async (dispatch) => {
-  const response = await fetch(`${baseURL}books/${payload}`, {
-    method: 'DELETE',
-  });
-  const responseStatus = await response.ok;
-  if (responseStatus) {
-    return dispatch(removeBook(payload));
-  }
-  return dispatch(BOOKS_FAILURE());
-}; */
 
 // Reducer
 const reducer = (state = initialState, action) => {
@@ -85,6 +51,11 @@ const reducer = (state = initialState, action) => {
       ));
     case MISSIONS_FAILURE:
       return state;
+    case BOOK_MISSION:
+      return state.map((mission) => {
+        if (mission.missionId !== action.payload) return mission;
+        return { ...mission, reserved: true };
+      });
     default:
       return state;
   }
