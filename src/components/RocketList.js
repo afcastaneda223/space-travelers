@@ -30,7 +30,7 @@ function RocketList() {
   return (
     <div>
       {myRocketArray.map((rocket) => (
-        <div className="card mb-5 border-0 " key={rocket.id}>
+        <div className="card mb-5 border-0" key={rocket.id}>
           <div className="row g-0">
             <div className="col-lg-4">
               <img src={rocket.flickr_images} className="img-fluid rounded-start" alt={rocket.rocket_name} />
