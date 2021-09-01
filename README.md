@@ -5,7 +5,7 @@
 - Book rockets
 - Join selected space missions
 
-![screenshot]()
+![screenshot](.github/images/space.png)
 
 
 ## Live-version
