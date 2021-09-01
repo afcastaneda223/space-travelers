@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileMissions from './ProfileMissions';
 import ProfileRockets from './ProfileRockets';
 
 function Profile() {
@@ -7,7 +8,7 @@ function Profile() {
       <div className="row row-cols-lg-2 row-cols-1">
         <div className="col">
           <h3>My Missions</h3>
-          {/* <ProfileMissions /> */}
+          <ProfileMissions />
         </div>
         <div className="col">
           <h3>My Rockets</h3>
