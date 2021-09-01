@@ -15,7 +15,7 @@
 
 ## Built With
 
-- React + Javascript + Redux
+- React + Javascript + Redux + Bootstrap
 
 ## Getting Started
 
