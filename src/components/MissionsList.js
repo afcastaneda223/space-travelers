@@ -6,7 +6,7 @@ import { fetchMissions, bookMission, unbookMission } from '../redux/missions/mis
 function MissionsList() {
   const dispatch = useDispatch();
 
-  const missions = useSelector((state) => state.missions, shallowEqual);
+  const missions = useSelector((state) => state.missions.entities, shallowEqual);
 
   useEffect(() => {
     if (missions.length === 0) {

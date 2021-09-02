@@ -12,7 +12,10 @@ const baseURL = 'https://api.spacexdata.com/v3/missions/';
 
 // Initial State
 
-const initialState = [];
+const initialState = {
+  status: 'idle',
+  entities: [],
+};
 
 // Action Creators
 export const getMissionsStarted = () => ({
@@ -53,28 +56,42 @@ export const unbookMission = (payload) => ({
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_STARTED:
-      return state;
+      return {
+        ...state,
+        status: 'starting',
+      };
     case FETCH_SUCCEDED:
-      return action.payload.map((mission) => (
-        {
-          id: mission.mission_id,
-          name: mission.mission_name,
-          description: mission.description,
-          reserved: false,
-        }
-      ));
+      return {
+        ...state,
+        entities: action.payload.map((mission) => (
+          {
+            id: mission.mission_id,
+            name: mission.mission_name,
+            description: mission.description,
+            reserved: false,
+          }
+        )),
+        status: 'idle',
+      };
     case FETCH_FAILED:
       return state;
     case CREATE:
-      return state.map((mission) => {
-        if (mission.id !== action.payload) return mission;
-        return { ...mission, reserved: true };
-      });
+      return {
+        ...state,
+        entities: state.entities.map((mission) => {
+          if (mission.id !== action.payload) return mission;
+          return { ...mission, reserved: true };
+        }),
+        status: 'failed',
+      };
     case REMOVE:
-      return state.map((mission) => {
-        if (mission.id !== action.payload) return mission;
-        return { ...mission, reserved: false };
-      });
+      return {
+        ...state,
+        entities: state.entities.map((mission) => {
+          if (mission.id !== action.payload) return mission;
+          return { ...mission, reserved: false };
+        }),
+      };
     default:
       return state;
   }
