@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Missions page Renders the Missions 1`] = `
+<div
+  className="container border border-3"
+>
+  <div
+    className="row row-cols-1 row-cols-md-12"
+  >
+    <div
+      className="col-md-2 border border-1"
+    >
+      <strong>
+        Mission
+      </strong>
+    </div>
+    <div
+      className="col-md-6 border border-1"
+    >
+      <strong>
+        Description
+      </strong>
+    </div>
+    <div
+      className="col-md-2 border border-1"
+    >
+      <strong>
+        Status
+      </strong>
+    </div>
+    <div
+      className="col-md-2 border border-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`Render Navbar Renders the navbar 1`] = `
+<header
+  className="sticky-top"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light mb-5 sticky-top"
+  >
+    <div
+      className="container-fluid"
+    >
+      <a
+        aria-current="page"
+        className="active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <img
+          alt="Logo"
+          src="planet.png"
+        />
+        <button
+          className="btn btn-light"
+          type="button"
+        >
+          <h3>
+            Space Travelers' Hub
+          </h3>
+        </button>
+      </a>
+      <button
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-bs-target="#navbarSupportedContent"
+        data-bs-toggle="collapse"
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
+        <ul
+          className="navbar-nav text-end mb-2 mb-lg-0 pe-5"
+        >
+          <li
+            className="m-2"
+          >
+            <a
+              aria-current="page"
+              className="link-dark text-decoration-none fw-bold text-decoration-underline"
+              href="/"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              Rockets
+            </a>
+          </li>
+          <li
+            className="m-2"
+          >
+            <a
+              aria-current={null}
+              className="link-dark text-decoration-none"
+              href="/missions"
+              onClick={[Function]}
+            >
+              Missions
+            </a>
+          </li>
+          <li
+            className="m-2"
+          >
+            <a
+              aria-current={null}
+              className="link-dark text-decoration-none"
+              href="/profile"
+              onClick={[Function]}
+            >
+              Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`Render Profile page Renders the profile 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row row-cols-lg-2 row-cols-1"
+  >
+    <div
+      className="col"
+    >
+      <h3>
+        My Missions
+      </h3>
+      <div>
+        <ul
+          className="list-group"
+        />
+      </div>
+    </div>
+    <div
+      className="col"
+    >
+      <h3>
+        My Rockets
+      </h3>
+      <div>
+        <ul
+          className="list-group"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render Rockets page Renders the Rockets page 1`] = `
+<div
+  className="container"
+>
+  <div />
+</div>
+`;
