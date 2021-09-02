@@ -33,7 +33,7 @@ export const getMissionsFailed = () => ({
 
 export const fetchMissions = () => async (dispatch) => {
   dispatch(getMissionsStarted());
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   try {
     const response = await fetch(`${baseURL}`, {});
     const missions = await response.json();
