@@ -10,7 +10,7 @@
 
 ## Live-version
 
-[Live Version](https://github.com/afcastaneda223/space-travelers)
+[Live Version](https://spacetravelershub.netlify.app/)
 
 ## Video Presentation
 
