@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Badge, Button } from 'react-bootstrap';
+import { Badge, Button, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { fetchMissions, bookMission, unbookMission } from '../redux/missions/missions';
 
@@ -7,6 +7,7 @@ function MissionsList() {
   const dispatch = useDispatch();
 
   const missions = useSelector((state) => state.missions.entities, shallowEqual);
+  const loadingStatus = useSelector((state) => state.missions.status);
 
   useEffect(() => {
     if (missions.length === 0) {
@@ -33,6 +34,14 @@ function MissionsList() {
       && <Button variant="outline-danger" onClick={() => leaveMission(id)}>Leave Mission</Button>
     ) || (<Button variant="outline-secondary" onClick={() => joinMission(id)}>Join Mission</Button>)
   );
+
+  if (loadingStatus === 'starting') {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
 
   return (
     <>
