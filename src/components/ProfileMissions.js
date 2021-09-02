@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const ProfileMissions = () => {
-  const missions = useSelector((state) => state.missions);
+  const missions = useSelector((state) => state.missions.entities);
 
   return (
     <div>

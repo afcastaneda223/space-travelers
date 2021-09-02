@@ -1,73 +1,98 @@
 /* eslint-disable camelcase */
 
 // Actions
-const MISSIONS_SUCCESS = 'space-travelers/missions/MISSIONS_SUCCESS';
-const MISSIONS_FAILURE = 'space-travelers/missions/MISSIONS_FAILURE';
-const BOOK_MISSION = 'space-travelers/missions/BOOK_MISSION';
-const UNBOOK_MISSION = 'space-travelers/missions/UNBOOK_MISSION';
+const FETCH_STARTED = 'space-travelers/missions/FETCH_STARTED';
+const FETCH_SUCCEDED = 'space-travelers/missions/FETCH_SUCCEDED';
+const FETCH_FAILED = 'space-travelers/missions/MISSIONS_FAILED';
+const CREATE = 'space-travelers/missions/CREATE';
+const REMOVE = 'space-travelers/missions/REMOVE';
 
 // API
 const baseURL = 'https://api.spacexdata.com/v3/missions/';
 
 // Initial State
 
-const initialState = [];
+const initialState = {
+  status: 'idle',
+  entities: [],
+};
 
 // Action Creators
-export const missionsSuccess = (payload) => ({
-  type: MISSIONS_SUCCESS,
+export const getMissionsStarted = () => ({
+  type: FETCH_STARTED,
+});
+
+export const getMissionsSuccess = (payload) => ({
+  type: FETCH_SUCCEDED,
   payload,
 });
 
-export const missionsFailure = () => ({
-  type: MISSIONS_FAILURE,
+export const getMissionsFailed = () => ({
+  type: FETCH_FAILED,
 });
 
 export const fetchMissions = () => async (dispatch) => {
-  const response = await fetch(`${baseURL}`, {
-  });
-  const responseStatus = await response.ok;
-  if (responseStatus) {
+  dispatch(getMissionsStarted());
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    const response = await fetch(`${baseURL}`, {});
     const missions = await response.json();
-    return dispatch(missionsSuccess(missions));
+    dispatch(getMissionsSuccess(missions));
+  } catch (err) {
+    dispatch(getMissionsFailed(err.toString()));
   }
-  return dispatch(missionsFailure());
 };
 
 export const bookMission = (payload) => ({
-  type: BOOK_MISSION,
+  type: CREATE,
   payload,
 });
 
 export const unbookMission = (payload) => ({
-  type: UNBOOK_MISSION,
+  type: REMOVE,
   payload,
 });
 
 // Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case MISSIONS_SUCCESS:
-      return action.payload.map((mission) => (
-        {
-          id: mission.mission_id,
-          name: mission.mission_name,
-          description: mission.description,
-          reserved: false,
-        }
-      ));
-    case MISSIONS_FAILURE:
+    case FETCH_STARTED:
+      return {
+        ...state,
+        status: 'starting',
+      };
+    case FETCH_SUCCEDED:
+      return {
+        ...state,
+        entities: action.payload.map((mission) => (
+          {
+            id: mission.mission_id,
+            name: mission.mission_name,
+            description: mission.description,
+            reserved: false,
+          }
+        )),
+        status: 'idle',
+      };
+    case FETCH_FAILED:
       return state;
-    case BOOK_MISSION:
-      return state.map((mission) => {
-        if (mission.id !== action.payload) return mission;
-        return { ...mission, reserved: true };
-      });
-    case UNBOOK_MISSION:
-      return state.map((mission) => {
-        if (mission.id !== action.payload) return mission;
-        return { ...mission, reserved: false };
-      });
+    case CREATE:
+      return {
+        ...state,
+        entities: state.entities.map((mission) => {
+          if (mission.id !== action.payload) return mission;
+          return { ...mission, reserved: true };
+        }),
+        status: 'failed',
+      };
+    case REMOVE:
+      return {
+        ...state,
+        entities: state.entities.map((mission) => {
+          if (mission.id !== action.payload) return mission;
+          return { ...mission, reserved: false };
+        }),
+      };
     default:
       return state;
   }
