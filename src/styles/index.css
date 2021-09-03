@@ -1,5 +1,11 @@
+@import './components/MissionList.css';
+
 body {
   background-color: white;
+}
+
+.main-navbar {
+  max-width: 1300px;
 }
 
 .badge {
