@@ -1,0 +1,10 @@
+.mission-card {
+  border-bottom: 3px solid gray;
+  border-top: 3px solid gray;
+}
+
+@media only screen and (min-width: 769px) {
+  .mission-card {
+    border: none;
+  }
+}
