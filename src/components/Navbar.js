@@ -4,8 +4,8 @@ import logo from '../assets/img/planet.png';
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5 sticky-top">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5 px-4">
+      <div className="container-fluid main-navbar">
         <NavLink to="/">
           <img alt="Logo" src={logo} />
           <button type="button" className="btn btn-light"><h3>Space Travelers&apos; Hub</h3></button>
@@ -22,7 +22,7 @@ function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul className="navbar-nav text-end mb-2 mb-lg-0 pe-5">
+          <ul className="navbar-nav text-end mb-2 mb-lg-0">
             <li className="m-2" key="home">
               <NavLink to="/" activeClassName="fw-bold text-decoration-underline" className="link-dark text-decoration-none" exact>Rockets</NavLink>
             </li>

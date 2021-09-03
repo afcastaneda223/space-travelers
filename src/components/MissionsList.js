@@ -46,16 +46,21 @@ function MissionsList() {
   return (
     <>
       {missions.map((mission) => (
-        <div key={mission.id} className="row row-cols-1 row-cols-md-12">
-          <div className="col-md-2 border border-1"><strong>{mission.name}</strong></div>
-          <div className="col-md-6 border border-1">{mission.description}</div>
-          <div className="col-md-2 border border-1 d-flex justify-content-center align-items-center">
+        <div key={mission.id} className="row row-cols-1 row-cols-md-12 mb-3 mb-md-0 mission-card">
+          <div className="col-md-2 p-4 border border-1"><strong>{mission.name}</strong></div>
+          <div className="col-md-6 p-4 border border-1">{mission.description}</div>
+          <div className="col-md-2 d-none d-md-flex border border-1 justify-content-center align-items-center">
             <div>
               {renderBadge(mission)}
             </div>
           </div>
           <div className="col-md-2 border border-1 d-flex justify-content-center align-items-center">
-            <div>
+            <div className="d-none d-md-block">
+              {renderBtn(mission)}
+            </div>
+            <div className="d-md-none py-3">
+              {renderBadge(mission)}
+              <div className="d-inline-block mx-3" />
               {renderBtn(mission)}
             </div>
           </div>
