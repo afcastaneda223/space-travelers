@@ -27,8 +27,9 @@ export const getMissionsSuccess = (payload) => ({
   payload,
 });
 
-export const getMissionsFailed = () => ({
+export const getMissionsFailed = (payload) => ({
   type: FETCH_FAILED,
+  payload,
 });
 
 export const fetchMissions = () => async (dispatch) => {
@@ -75,7 +76,11 @@ const reducer = (state = initialState, action) => {
         status: 'idle',
       };
     case FETCH_FAILED:
-      return state;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.payload,
+      };
     case CREATE:
       return {
         ...state,
@@ -83,7 +88,7 @@ const reducer = (state = initialState, action) => {
           if (mission.id !== action.payload) return mission;
           return { ...mission, reserved: true };
         }),
-        status: 'failed',
+        status: 'idle',
       };
     case REMOVE:
       return {
@@ -92,6 +97,7 @@ const reducer = (state = initialState, action) => {
           if (mission.id !== action.payload) return mission;
           return { ...mission, reserved: false };
         }),
+        status: 'idle',
       };
     default:
       return state;
