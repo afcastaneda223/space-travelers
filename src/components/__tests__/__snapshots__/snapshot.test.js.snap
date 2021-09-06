@@ -2,34 +2,34 @@
 
 exports[`Render Missions page Renders the Missions 1`] = `
 <div
-  className="container border border-3"
+  className="container"
 >
   <div
-    className="row row-cols-1 row-cols-md-12"
+    className="row d-none d-md-flex row-cols-md-12"
   >
     <div
-      className="col-md-2 border border-1"
+      className="col-md-2 border border-1 p-3"
     >
       <strong>
         Mission
       </strong>
     </div>
     <div
-      className="col-md-6 border border-1"
+      className="col-md-6 border border-1 p-3"
     >
       <strong>
         Description
       </strong>
     </div>
     <div
-      className="col-md-2 border border-1"
+      className="col-md-2 border border-1 p-3"
     >
       <strong>
         Status
       </strong>
     </div>
     <div
-      className="col-md-2 border border-1"
+      className="col-md-2 border border-1 p-3"
     />
   </div>
 </div>
@@ -40,10 +40,10 @@ exports[`Render Navbar Renders the navbar 1`] = `
   className="sticky-top"
 >
   <nav
-    className="navbar navbar-expand-lg navbar-light bg-light mb-5 sticky-top"
+    className="navbar navbar-expand-lg navbar-light bg-light mb-5 px-4"
   >
     <div
-      className="container-fluid"
+      className="container-fluid main-navbar"
     >
       <a
         aria-current="page"
@@ -83,7 +83,7 @@ exports[`Render Navbar Renders the navbar 1`] = `
         id="navbarSupportedContent"
       >
         <ul
-          className="navbar-nav text-end mb-2 mb-lg-0 pe-5"
+          className="navbar-nav text-end mb-2 mb-lg-0"
         >
           <li
             className="m-2"
